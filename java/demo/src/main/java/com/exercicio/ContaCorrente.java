@@ -17,7 +17,6 @@ public class ContaCorrente extends Conta {
         this.limite = limite;
     }
 
-    /** Saca usando o limite de crédito além do saldo */
     public boolean sacarComLimite(double valor) {
         if (valor > 0 && (getSaldo() + limite) >= valor) {
             setSaldo(getSaldo() - valor);
@@ -29,8 +28,7 @@ public class ContaCorrente extends Conta {
     public void cobrarTarifa() {
         double tarifa = 12.50;
         setSaldo(getSaldo() - tarifa);
-        getNotificador().enviarAlerta(getTitular(),
-                "Tarifa de R$ " + String.format("%.2f", tarifa) + " cobrada na conta corrente.");
+        getNotificador().enviarAlerta(getTitular(), "Tarifa de R$ " + String.format("%.2f", tarifa) + " cobrada na conta corrente.");
     }
 
     @Override

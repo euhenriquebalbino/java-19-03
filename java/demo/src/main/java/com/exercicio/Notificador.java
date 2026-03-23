@@ -12,8 +12,7 @@ public class Notificador {
     }
 
     public void enviarSaldo(Titular titular, double saldo) {
-        System.out.println("[" + canal + "] Notificação para " + titular.getNome() + ": Saldo atual = R$ "
-                + String.format("%.2f", saldo));
+        System.out.println("[" + canal + "] Notificação para " + titular.getNome() + ": Saldo atual = R$ " + String.format("%.2f", saldo));
     }
 
     public void enviarAlerta(Titular titular, String msg) {

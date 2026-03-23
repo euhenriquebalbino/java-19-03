@@ -20,21 +20,15 @@ public class ContaPoupanca extends Conta {
     public void renderJuros() {
         double juros = getSaldo() * taxaJuros;
         setSaldo(getSaldo() + juros);
-        getNotificador().enviarAlerta(getTitular(),
-                "Rendimento de R$ " + String.format("%.2f", juros) + " creditado na poupança.");
+        getNotificador().enviarAlerta(getTitular(), "Rendimento de R$ " + String.format("%.2f", juros) + " creditado na poupança.");
     }
 
     public int getDiaAniversario() {
         return diaAniversario;
     }
 
-    /**
-     * Override: poupança não possui limite, então saque só é permitido se houver
-     * saldo suficiente
-     */
     @Override
     public boolean sacar(double valor) {
-        // sem limite — delega à lógica padrão da superclasse
         return super.sacar(valor);
     }
 

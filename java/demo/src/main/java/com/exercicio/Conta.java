@@ -40,22 +40,17 @@ public abstract class Conta {
     }
 
     public void exibir() {
-        System.out.println("Conta: " + numeroConta
-                + " | Titular: " + titular.getNome()
-                + " | Saldo: R$ " + String.format("%.2f", saldo));
+        System.out.println("Conta: " + numeroConta + " | Titular: " + titular.getNome() + " | Saldo: R$ " + String.format("%.2f", saldo));
     }
 
-    /** Delega a exibição do saldo ao Notificador */
     public void consultarSaldo() {
         notificador.enviarSaldo(titular, saldo);
     }
 
-    // Permite que as subclasses acessem o notificador para envio de alertas
     protected Notificador getNotificador() {
         return notificador;
     }
 
-    // Permite que as subclasses ajustem o saldo diretamente (ex: renderJuros)
     protected void setSaldo(double saldo) {
         this.saldo = saldo;
     }
